@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block title %}Debts{% endblock %}
+
+{% block content %}
+  <h1>Debts</h1>
+  <ul>
+    {% for debt in debts %}
+      <li>{{ debt.description }} - {{ debt.amount }}</li>
+    {% empty %}
+      <li>No debts found.</li>
+    {% endfor %}
+  </ul>
+{% endblock %}
