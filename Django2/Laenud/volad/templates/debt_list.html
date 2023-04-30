@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Debt List</h1>
+<ul>
+{% for debt in debts %}
+<li>You owe {{ debt.creditor.username }} {{ debt.amount }}.</li>
+<p>Notes: {{ debt.notes }}</p>
+<form action="{% url 'delete_debt' debt.id %}" method="post">
+{% csrf_token %}
+<input type="submit" value="Delete debt">
+</form>
+{% endfor %}
+</ul>
+{% endblock %}
